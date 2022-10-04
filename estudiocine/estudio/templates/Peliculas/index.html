@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block titulo %} LIsta de Peliculas {% endblock %}
+
+{% block contenido %}  
+
+<div class="card">
+    <div class="card-header">
+        LIstar Peliculas
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Peliculas</h4>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">TItulo</th>
+                        <th scope="col">Director</th>
+                        <th scope="col">Guionista</th>
+                        <th scope="col">Actor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td scope="row">R1C1</td>
+                        <td>R1C2</td>
+                        <td>R1C3</td>
+                        <td>R1C4</td>
+                        <td>R1C5</td>
+                    </tr>
+                    <tr class="">
+                        <td scope="row">Item</td>
+                        <td>Item</td>
+                        <td>Item</td>
+                        <td>Item</td>
+                        <td>Item</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+
+{% endblock %}
+
+    
