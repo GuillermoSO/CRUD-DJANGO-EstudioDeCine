@@ -21,14 +21,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="">
-                        <td scope="row">1</td>
-                        <td>James Cameron</td>
+
+                    {% for Director in directores %}
+                    <tr>
+                        <td>{{ Director.id }}</td>
+                        <td>{{ Director.Nombre }}</td>
                         <td> 
-                            <a name="" id="" class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a> 
-                            <a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a> 
+                            <a name="" id="" class="btn btn-info" href="{% url 'editar' Director.id %}" role="button">Editar</a> 
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' Director.id %}" role="button">Borrar</a> 
                         </td>
                     </tr>
+                    {% endfor %}
+
                 </tbody>
             </table>
         </div>
