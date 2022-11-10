@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block titulo %} Agregar Nuevo Guionista {% endblock %}
+
+{% block contenido %}  
+
+<div class="card">
+    <div class="card-header">
+        Agregar Guionista
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Guionista</h4>
+    {% include 'guionistas/form.html' %}
+
+
+    </div>
+</div>
+
+{% endblock %}

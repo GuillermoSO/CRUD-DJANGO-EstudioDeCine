@@ -4,7 +4,6 @@
 
 <head>
   <title> {% block titulo %}  {% endblock %} </title>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -16,12 +15,13 @@
 
 <body>
   <header>
-    <!-- place navbar here -->
+      <!-- NAVBAR -->
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'Inicio' %}">Inicio</a>
             <a class="nav-item nav-link active" href="#">Peliculas</a>
             <a class="nav-item nav-link active" href="{% url 'directores' %}">Directores</a>
+            <a class="nav-item nav-link active" href="{% url 'guionistas' %}">Guionistas</a>
         </div>
     </nav>
   </header>

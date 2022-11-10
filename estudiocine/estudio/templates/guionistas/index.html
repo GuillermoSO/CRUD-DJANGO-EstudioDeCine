@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block titulo %} Lista de Directores {% endblock %}
+{% block titulo %} Lista de Guionistas {% endblock %}
 
 {% block contenido %}  
 
 <div class="card">
     <div class="card-header">
-        <a name="" id="" class="btn btn-success" href="{% url 'crearD' %}" role="button">Agregar Nuevo Director</a>
+        <a name="" id="" class="btn btn-success" href="{% url 'crearG' %}" role="button">Agregar Nuevo Guionista</a>
     </div>
     <div class="card-body">
-        <h4 class="card-title">Directores</h4>
+        <h4 class="card-title">Guionistas</h4>
 
         <div class="table-responsive">
             <table class="table table-primary">
@@ -22,13 +22,13 @@
                 </thead>
                 <tbody>
 
-                    {% for Director in directores %}
+                    {% for Guionista in guionistas %}
                     <tr>
-                        <td>{{ Director.id }}</td>
-                        <td>{{ Director.Nombre }}</td>
+                        <td>{{ Guionista.id }}</td>
+                        <td>{{ Guionista.Nombre }}</td>
                         <td> 
-                            <a name="" id="" class="btn btn-info" href="{% url 'editarD' Director.id %}" role="button">Editar</a> 
-                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminarD' Director.id %}" role="button">Borrar</a> 
+                            <a name="" id="" class="btn btn-info" href="{% url 'editarG' Guionista.id %}" role="button">Editar</a> 
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminarG' Guionista.id %}" role="button">Borrar</a> 
                         </td>
                     </tr>
                     {% endfor %}
