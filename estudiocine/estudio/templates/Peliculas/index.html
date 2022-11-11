@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="card-header">
-        LIstar Peliculas
+        <a name="" id="" class="btn btn-success" href="{% url 'crearP' %}" role="button">Agregar Nueva Película</a>
     </div>
     <div class="card-body">
         <h4 class="card-title">Peliculas</h4>
@@ -19,24 +19,23 @@
                         <th scope="col">TItulo</th>
                         <th scope="col">Director</th>
                         <th scope="col">Guionista</th>
-                        <th scope="col">Actor</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="">
-                        <td scope="row">R1C1</td>
-                        <td>R1C2</td>
-                        <td>R1C3</td>
-                        <td>R1C4</td>
-                        <td>R1C5</td>
+
+                    {% for Pelicula in peliculas %}
+                    <tr>
+                        <td>{{ Pelicula.id }}</td>
+                        <td>{{ Pelicula.Nombre }}</td>
+                        <td>{{ Pelicula.Director.Nombre }}</td>
+                        <td>{{ Pelicula.Guionista.Nombre }}</td>
+                        <td> 
+                            <a name="" id="" class="btn btn-info" href="{% url 'editarP' Pelicula.id %}" role="button">Editar</a> 
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminarP' Pelicula.id %}" role="button">Borrar</a> 
+                        </td>
                     </tr>
-                    <tr class="">
-                        <td scope="row">Item</td>
-                        <td>Item</td>
-                        <td>Item</td>
-                        <td>Item</td>
-                        <td>Item</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

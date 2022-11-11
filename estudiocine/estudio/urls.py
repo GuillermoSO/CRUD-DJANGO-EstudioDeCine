@@ -15,5 +15,11 @@ urlpatterns = [
     path('guionistas/editar', views.editar_guionista, name='editarG'),
     path('guionistas/<int:id>', views.eliminar_guionista, name='eliminarG'),
     path('guionistas/editar/<int:id>', views.editar_guionista, name='editarG'),
+    # PELICULAS
+    path('peliculas', views.peliculas, name='peliculas'),
+    path('peliculas/crear', views.crear_pelicula, name='crearP'),
+    path('peliculas/editar', views.editar_pelicula, name='editarP'),
+    path('peliculas/<int:id>', views.eliminar_pelicula, name='eliminarP'),
+    path('peliculas/editar/<int:id>', views.editar_pelicula, name='editarP'),
     
 ]
