@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.template import RequestContext
+from django.contrib.auth.forms import UserCreationForm
 from .models import Director
 from .forms import DirectorForm
 from .models import Guionista
@@ -7,7 +9,6 @@ from .models import Pelicula
 from .forms import PeliculaForm
 
 # Create your views here.
-
 def inicio(request):
     return render(request, 'paginas/inicio.html')
 
@@ -94,3 +95,4 @@ def eliminar_pelicula(request, id):
     pelicula = Pelicula.objects.get(id=id)
     pelicula.delete()
     return redirect('peliculas')
+

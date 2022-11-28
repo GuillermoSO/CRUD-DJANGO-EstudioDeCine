@@ -1,4 +1,4 @@
-from django.urls import path 
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -21,5 +21,4 @@ urlpatterns = [
     path('peliculas/editar', views.editar_pelicula, name='editarP'),
     path('peliculas/<int:id>', views.eliminar_pelicula, name='eliminarP'),
     path('peliculas/editar/<int:id>', views.editar_pelicula, name='editarP'),
-    
 ]
