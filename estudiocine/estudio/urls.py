@@ -21,4 +21,7 @@ urlpatterns = [
     path('peliculas/editar', views.editar_pelicula, name='editarP'),
     path('peliculas/<int:id>', views.eliminar_pelicula, name='eliminarP'),
     path('peliculas/editar/<int:id>', views.editar_pelicula, name='editarP'),
+    # REPORTE
+    path('peliculas_pdf', views.peliculas_pdf, name='peliculas_pdf'),
+
 ]

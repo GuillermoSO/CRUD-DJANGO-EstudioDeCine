@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from django.template import RequestContext
 from django.contrib.auth.forms import UserCreationForm
+from django.http import FileResponse, HttpResponse
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import A4
 from .models import Director
 from .forms import DirectorForm
 from .models import Guionista
@@ -96,3 +101,40 @@ def eliminar_pelicula(request, id):
     pelicula.delete()
     return redirect('peliculas')
 
+# REPORTES
+# PELICULAS
+def peliculas_pdf(request):
+    # Bytestream buffer
+    buf = io.BytesIO()
+    # Canvas
+    c = canvas.Canvas(buf, pagesize=A4, bottomup=0)
+    # Text Object
+    textob = c.beginText()
+    textob.setTextOrigin(inch, inch)
+    textob.setFont("Helvetica", 14)
+
+    pelis = Pelicula.objects.all()  
+
+    # CREO UNA LISTA EN BLANCO
+    lines = ["LISTADO DE PELICULAS",
+    " "
+    ]
+
+    for peli in pelis:
+        lines.append("TITULO")
+        lines.append(peli.Nombre)
+        lines.append("DIRECTOR")
+        lines.append(peli.Director.Nombre)
+        lines.append("GUIONISTA")
+        lines.append(peli.Guionista.Nombre)
+        lines.append("------------------------------------")
+       
+    for line in lines:
+        textob.textLine(line)
+
+    c.drawText(textob)
+    c.showPage()
+    c.save()
+    buf.seek(0)
+
+    return FileResponse(buf, as_attachment=True, filename='peliculas.pdf')
